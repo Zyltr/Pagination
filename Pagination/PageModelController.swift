@@ -50,6 +50,10 @@ class PageModelController<Page : Pageable> : NSObject, UIPageViewControllerDataS
             preconditionFailure("ViewController with identifier \(self.identifier) could not be found in the Storyboard \(self.storyboard)")
         }
         
+        guard !self.values.isEmpty else {
+            return nil
+        }
+        
         viewController.pageValue = self.values[index]
         
         self.viewControllers[index] = viewController
