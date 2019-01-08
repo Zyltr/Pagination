@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Tnu-N3-Lbf">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Pagination-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Pagination" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="JWW-TJ-T1y">
+                                <rect key="frame" x="20" y="84" width="335" height="183"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="mwN-er-xxn" userLabel="Navigation Stack View">
+                                        <rect key="frame" x="0.0" y="0.0" width="335" height="56.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Navigation Orientation" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n1v-C4-Ts1">
+                                                <rect key="frame" x="0.0" y="0.0" width="335" height="20.5"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="c7V-3u-Tdi">
+                                                <rect key="frame" x="0.0" y="28.5" width="335" height="29"/>
+                                                <segments>
+                                                    <segment title="Horizontal"/>
+                                                    <segment title="Vertical"/>
+                                                </segments>
+                                            </segmentedControl>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="dha-mr-KR7" userLabel="Transition Style Stack View">
+                                        <rect key="frame" x="0.0" y="76.5" width="335" height="56.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Transition Style" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fGe-DJ-K06">
+                                                <rect key="frame" x="0.0" y="0.0" width="335" height="20.5"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="GfM-PE-8lo">
+                                                <rect key="frame" x="0.0" y="28.5" width="335" height="29"/>
+                                                <segments>
+                                                    <segment title="Page Curl"/>
+                                                    <segment title="Scroll"/>
+                                                </segments>
+                                            </segmentedControl>
+                                        </subviews>
+                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tkD-GN-foF">
+                                        <rect key="frame" x="0.0" y="153" width="335" height="30"/>
+                                        <state key="normal" title="Show"/>
+                                        <connections>
+                                            <segue destination="528-Pu-4G2" kind="show" id="B0y-Pz-GUe"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="JWW-TJ-T1y" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="4eF-ZP-Ism"/>
+                            <constraint firstItem="JWW-TJ-T1y" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="E1g-CT-srY"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="JWW-TJ-T1y" secondAttribute="trailing" constant="20" id="RQp-zC-ycn"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Pagination" id="Uf2-CA-Uvr"/>
+                    <connections>
+                        <outlet property="navOrientationControl" destination="c7V-3u-Tdi" id="J5H-2M-bZR"/>
+                        <outlet property="transStyleControl" destination="GfM-PE-8lo" id="zRH-Pp-eip"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="744.79999999999995" y="129.98500749625188"/>
+        </scene>
+        <!--Container View Controller-->
+        <scene sceneID="5Cd-Ib-9b7">
+            <objects>
+                <viewController id="528-Pu-4G2" customClass="ContainerViewController" customModule="Pagination" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="MgD-fe-MNC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="wJb-iD-viW" userLabel="Page Stack View">
+                                <rect key="frame" x="16" y="80" width="343" height="571"/>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="wJb-iD-viW" firstAttribute="leading" secondItem="Byz-lk-XDA" secondAttribute="leading" constant="16" id="d5o-cS-4F0"/>
+                            <constraint firstItem="Byz-lk-XDA" firstAttribute="trailing" secondItem="wJb-iD-viW" secondAttribute="trailing" constant="16" id="jCw-LS-gfe"/>
+                            <constraint firstItem="wJb-iD-viW" firstAttribute="top" secondItem="Byz-lk-XDA" secondAttribute="top" constant="16" id="jxG-yj-tQl"/>
+                            <constraint firstItem="Byz-lk-XDA" firstAttribute="bottom" secondItem="wJb-iD-viW" secondAttribute="bottom" constant="16" id="lVh-MB-p01"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Byz-lk-XDA"/>
+                    </view>
+                    <connections>
+                        <outlet property="pageStackView" destination="wJb-iD-viW" id="fH2-oo-Nqj"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ACN-Rb-XVX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1476" y="129.98500749625188"/>
+        </scene>
+        <!--Pageable View Controller-->
+        <scene sceneID="3bT-4h-aSg">
+            <objects>
+                <viewController storyboardIdentifier="Page" id="YwN-bk-VUj" customClass="PageableViewController" customModule="Pagination" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2BM-x0-yt3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="0" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AZ1-tM-9mi">
+                                <rect key="frame" x="157" y="274" width="61" height="119.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="100"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="AZ1-tM-9mi" firstAttribute="centerX" secondItem="2BM-x0-yt3" secondAttribute="centerX" id="cX4-jD-A36"/>
+                            <constraint firstItem="AZ1-tM-9mi" firstAttribute="centerY" secondItem="2BM-x0-yt3" secondAttribute="centerY" id="f5Z-qS-nk3"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="NhR-UD-w2T"/>
+                    </view>
+                    <connections>
+                        <outlet property="emojiLabel" destination="AZ1-tM-9mi" id="ADY-B2-vAb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vBI-bF-9km" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2206" y="130"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="0aj-EN-mqy">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Tnu-N3-Lbf" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="hXa-5M-cqw">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="gfJ-hf-tRk"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TEc-fS-bDK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="16.800000000000001" y="129.98500749625188"/>
+        </scene>
+    </scenes>
+</document>
