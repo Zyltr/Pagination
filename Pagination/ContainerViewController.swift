@@ -2,21 +2,19 @@ import UIKit
 
 class ContainerViewController : UIViewController, UIPageViewControllerDelegate {
     
-    @IBOutlet weak var pageStackView: UIStackView!
+    @IBOutlet weak private var pageStackView: UIStackView!
     
     private var pageViewController: UIPageViewController!
     private var pageControl: UIPageControl!
     
     private var modelController : PageModelController<PageableViewController>!
     
-    var navigationOrientation  = UIPageViewController.NavigationOrientation.horizontal
-    var transitionStyle = UIPageViewController.TransitionStyle.pageCurl
+    public var navigationOrientation  = UIPageViewController.NavigationOrientation.horizontal
+    public var transitionStyle = UIPageViewController.TransitionStyle.pageCurl
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        print(#function)
-        
         // Do any additional setup after loading the view.
         let values = ["🐶", "🐱", "🐭", "🐹", "🐰", "🦊", "🐻", "🐼", "🐨", "🐯"]
         self.modelController = PageModelController<PageableViewController>(storyboard: self.storyboard, viewControllerIdentifier: "Page", values: values)

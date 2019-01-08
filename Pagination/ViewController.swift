@@ -2,8 +2,8 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    @IBOutlet weak var navOrientationControl: UISegmentedControl!
-    @IBOutlet weak var transStyleControl: UISegmentedControl!
+    @IBOutlet weak private var navOrientationControl: UISegmentedControl!
+    @IBOutlet weak private var transStyleControl: UISegmentedControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
