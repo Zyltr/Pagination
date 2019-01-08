@@ -12,11 +12,13 @@ protocol Pageable where Self : UIViewController {
 class PageModelController<Page : Pageable> : NSObject, UIPageViewControllerDataSource {
     
     private let identifier: String
-    private let pageLimit : Int
+    private let pageLimit: Int
+    private var presentationIndex: Int
     
-    private let values: [Page.Value]
+    /* Is cleared when all pages loaded */
+    private var values: [Page.Value]
+    
     private var viewControllers: [Int : Page]
-    private var indicies : [Page : Int]
     private let storyboard: UIStoryboard
     
     
@@ -29,8 +31,8 @@ class PageModelController<Page : Pageable> : NSObject, UIPageViewControllerDataS
         self.values = values
         self.pageLimit = values.count
         self.identifier = viewControllerIdentifier
+        self.presentationIndex = 0
         self.viewControllers = [:]
-        self.indicies = [:]
     }
     
     var firstViewController: Page? {
@@ -55,24 +57,26 @@ class PageModelController<Page : Pageable> : NSObject, UIPageViewControllerDataS
         }
         
         viewController.pageValue = self.values[index]
+        viewController.view.tag = index
         
         self.viewControllers[index] = viewController
-        self.indicies[viewController] = index
+        
+        if self.viewControllers.count == self.pageLimit {
+            self.values.removeAll()
+        }
         
         return viewController
     }
     
     private func indexOfViewController(_ viewController : Page) -> Int {
-        guard let index = self.indicies[viewController] else {
-            return Int.min
-        }
-        
-        return index
+        return viewController.view.tag
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         let currentIndex = self.indexOfViewController(viewController as! Page)
         let beforeIndex = currentIndex - 1 < 0 ? self.pageLimit - 1 : currentIndex - 1
+        
+        self.presentationIndex = beforeIndex
         
         return currentIndex != beforeIndex ? self.viewControllerAtIndex(beforeIndex) : nil
     }
@@ -81,7 +85,17 @@ class PageModelController<Page : Pageable> : NSObject, UIPageViewControllerDataS
         let currentIndex = self.indexOfViewController(viewController as! Page)
         let afterIndex = currentIndex + 1 < self.pageLimit ? currentIndex + 1 : 0
         
+        self.presentationIndex = afterIndex
+        
         return currentIndex != afterIndex ? self.viewControllerAtIndex(afterIndex) : nil
+    }
+    
+    func presentationCount(for pageViewController: UIPageViewController) -> Int {
+        return self.pageLimit
+    }
+    
+    func presentationIndex(for pageViewController: UIPageViewController) -> Int {
+        return self.presentationIndex
     }
     
 }

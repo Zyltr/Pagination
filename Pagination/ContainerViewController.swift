@@ -46,7 +46,7 @@ class ContainerViewController : UIViewController, UIPageViewControllerDelegate {
             return
         }
         
-        self.pageControl.currentPage = self.pageControl.currentPage + 1 < self.pageControl.numberOfPages ? self.pageControl.currentPage + 1 : 0
+        self.pageControl.currentPage = self.modelController.presentationIndex(for: self.pageViewController)
     }
     
 }
