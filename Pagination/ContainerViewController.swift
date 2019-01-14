@@ -9,13 +9,18 @@ class ContainerViewController : UIViewController, UIPageViewControllerDelegate {
     
     private var modelController : PageModelController<PageableViewController>!
     
-    public var navigationOrientation  = UIPageViewController.NavigationOrientation.horizontal
+    public var navigationOrientation = UIPageViewController.NavigationOrientation.horizontal
     public var transitionStyle = UIPageViewController.TransitionStyle.pageCurl
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        var title = self.transitionStyle == .pageCurl ? "Page" : "Scroll"
+        title += " "
+        title += self.navigationOrientation == .horizontal ? "Horizontally" : "Vertically"
+        self.navigationItem.title = title
+        
         let values = ["🐶", "🐱", "🐭", "🐹", "🐰", "🦊", "🐻", "🐼", "🐨", "🐯"]
         self.modelController = PageModelController<PageableViewController>(storyboard: self.storyboard, viewControllerIdentifier: "Page", values: values)
         
@@ -34,19 +39,19 @@ class ContainerViewController : UIViewController, UIPageViewControllerDelegate {
         self.addChild(self.pageViewController)
         
         self.pageControl = UIPageControl(frame: CGRect())
-        self.pageControl.numberOfPages = values.count
-        self.pageControl.currentPageIndicatorTintColor = UIColor.gray.withAlphaComponent(0.8)
-        self.pageControl.pageIndicatorTintColor = UIColor.gray.withAlphaComponent(0.2)
+        self.pageControl!.numberOfPages = values.count
+        self.pageControl!.currentPageIndicatorTintColor = UIColor.gray.withAlphaComponent(0.8)
+        self.pageControl!.pageIndicatorTintColor = UIColor.gray.withAlphaComponent(0.2)
         
-        self.pageStackView.addArrangedSubview(self.pageControl)
+        self.pageStackView.addArrangedSubview(self.pageControl!)
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
-        guard finished, completed else {
+        guard let first = pageViewController.viewControllers?.first, finished, completed else {
             return
         }
         
-        self.pageControl.currentPage = self.modelController.presentationIndex(for: self.pageViewController)
+        self.pageControl.currentPage = first.view.tag
     }
     
 }

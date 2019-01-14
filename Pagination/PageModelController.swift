@@ -32,8 +32,8 @@ class PageModelController<Page : Pageable> : NSObject, UIPageViewControllerDataS
         self.identifier = viewControllerIdentifier
         self.pages = [:]
     }
-    
-    var firstViewController: Page? {
+
+    public var firstViewController: Page? {
         guard let firstViewController = self.viewControllerAtIndex(0), self.pageLimit > 0 else {
             return nil
         }
@@ -70,30 +70,18 @@ class PageModelController<Page : Pageable> : NSObject, UIPageViewControllerDataS
         return viewController.view.tag
     }
     
-    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
+    public func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         let currentIndex = self.indexOfViewController(viewController as! Page)
         let beforeIndex = currentIndex - 1 < 0 ? self.pageLimit - 1 : currentIndex - 1
 
         return currentIndex != beforeIndex ? self.viewControllerAtIndex(beforeIndex) : nil
     }
     
-    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
+    public func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
         let currentIndex = self.indexOfViewController(viewController as! Page)
         let afterIndex = currentIndex + 1 < self.pageLimit ? currentIndex + 1 : 0
 
         return currentIndex != afterIndex ? self.viewControllerAtIndex(afterIndex) : nil
-    }
-    
-    func presentationCount(for pageViewController: UIPageViewController) -> Int {
-        return self.pageLimit
-    }
-    
-    func presentationIndex(for pageViewController: UIPageViewController) -> Int {
-        guard let firstViewController = pageViewController.viewControllers?.first as? Page else {
-            return 0
-        }
-        
-        return self.indexOfViewController(firstViewController)
     }
     
 }

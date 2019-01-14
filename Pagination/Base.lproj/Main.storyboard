@@ -95,15 +95,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="wJb-iD-viW" userLabel="Page Stack View">
-                                <rect key="frame" x="16" y="80" width="343" height="571"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="wJb-iD-viW" firstAttribute="leading" secondItem="Byz-lk-XDA" secondAttribute="leading" constant="16" id="d5o-cS-4F0"/>
-                            <constraint firstItem="Byz-lk-XDA" firstAttribute="trailing" secondItem="wJb-iD-viW" secondAttribute="trailing" constant="16" id="jCw-LS-gfe"/>
-                            <constraint firstItem="wJb-iD-viW" firstAttribute="top" secondItem="Byz-lk-XDA" secondAttribute="top" constant="16" id="jxG-yj-tQl"/>
-                            <constraint firstItem="Byz-lk-XDA" firstAttribute="bottom" secondItem="wJb-iD-viW" secondAttribute="bottom" constant="16" id="lVh-MB-p01"/>
+                            <constraint firstItem="wJb-iD-viW" firstAttribute="leading" secondItem="Byz-lk-XDA" secondAttribute="leading" id="d5o-cS-4F0"/>
+                            <constraint firstItem="Byz-lk-XDA" firstAttribute="trailing" secondItem="wJb-iD-viW" secondAttribute="trailing" id="jCw-LS-gfe"/>
+                            <constraint firstItem="wJb-iD-viW" firstAttribute="top" secondItem="Byz-lk-XDA" secondAttribute="top" id="jxG-yj-tQl"/>
+                            <constraint firstItem="Byz-lk-XDA" firstAttribute="bottom" secondItem="wJb-iD-viW" secondAttribute="bottom" id="lVh-MB-p01"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Byz-lk-XDA"/>
                     </view>
